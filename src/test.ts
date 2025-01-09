@@ -43,7 +43,7 @@ import { fetchTransactionDetails, createSwapTransaction, getRugCheckConfirmed, f
 
 (async () => {
   const testId = null;
-  const testAmount = "7";
+  const testAmount = "";
   if (testId) {
     const tx = await createSellTransaction("So11111111111111111111111111111111111111112", testId, testAmount);
     console.log(tx);
