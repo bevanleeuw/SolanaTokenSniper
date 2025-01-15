@@ -217,12 +217,10 @@ export async function createSwapTransaction(solMint: string, tokenMint: string):
           // This will set an optimized slippage to ensure high success rate
           maxBps: 300, // Make sure to set a reasonable cap here to prevent MEV
         },
-        prioritizationFeeLamports: {
-          priorityLevelWithMaxLamports: {
-            maxLamports: config.swap.prio_fee_max_lamports,
-            priorityLevel: config.swap.prio_level,
-          },
-        },
+        // Sets max priority fee you are willing to pay.
+        // Make sure to not set too low or swaps will fail 
+        // Setting too high will eat away at profits.
+        prioritizationFeeLamports: config.swap.prio_fee_max_lamports,
       }),
       {
         headers: {
@@ -642,12 +640,10 @@ export async function createSellTransaction(solMint: string, tokenMint: string, 
           // This will set an optimized slippage to ensure high success rate
           maxBps: 300, // Make sure to set a reasonable cap here to prevent MEV
         },
-        prioritizationFeeLamports: {
-          priorityLevelWithMaxLamports: {
-            maxLamports: config.sell.prio_fee_max_lamports,
-            priorityLevel: config.sell.prio_level,
-          },
-        },
+        // Sets max priority fee you are willing to pay.
+        // Make sure to not set too low or swaps will fail 
+        // Setting too high will eat away at profits.
+        prioritizationFeeLamports: config.swap.prio_fee_max_lamports,
       }),
       {
         headers: {
